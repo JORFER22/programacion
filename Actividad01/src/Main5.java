@@ -7,5 +7,6 @@ void main(String[] args) {
     double pr= teclado.nextDouble();
     double des= ((pr-pv)/pr)*100;
     System.out.println("EL DESCUENTO ES "+des+"%");
-    
+    teclado.close();
+
 }
