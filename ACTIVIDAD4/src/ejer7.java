@@ -8,10 +8,10 @@ public class ejer7 {
         int P= teclado.nextInt();
         IO.println("INTRODUCE Q");
         int Q = teclado.nextInt();
-        int valor = (Q-P)+1;
+        int valor = (Q-P);
         int [] variable = new int[valor];
-        for ()
-
-
+        for (int i = 0 ; i <= variable.length ; i++){
+            IO.println(i + valor);
+        }
     }
 }
