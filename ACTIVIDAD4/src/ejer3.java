@@ -5,15 +5,13 @@ import java.util.OptionalInt;
 import java.util.Scanner;
 public class ejer3 {
     public static void main (String[] args){
+        double max= - Double.MAX_VALUE, min= Double.MIN_VALUE;
         int [] numeros =new int  [10];
         for (int i=0 ; i< numeros.length ; i++){
             Scanner teclado= new Scanner(System.in);
-            IO.println("INTRODUCE LOS 10 NUMEROS");
-            int ni= teclado.nextInt();
-            numeros[i]=ni;
+            IO.println("INTRODUCE EL NUMERO "+(i+1)+":");
+            numeros[i] = teclado.nextInt();
         }
-        OptionalInt max =  Arrays.stream(numeros).max();
-        OptionalInt min = Arrays.stream(numeros).min();
         IO.println("MAYOR: "+max);
         IO.println("MENOR: "+min);
 

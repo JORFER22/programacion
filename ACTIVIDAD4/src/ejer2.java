@@ -7,12 +7,12 @@ public class ejer2 {
         int suma = 0;
         for (int i = 0; i < numeros.length; i++) {
             Scanner teclado = new Scanner(System.in);
-            IO.println("INTRODUCE LOS 10 NUMEROS");
+            IO.println("INTRODUCE el numero "+(i+1)+":");
             int ni = teclado.nextInt();
             numeros[i] = ni;
             suma= suma+numeros[i];
         }
-        IO.println("LA SUMA ES: "+suma);
+        IO.println("LA SUMA DE TODOS LOS VALORES DEL ARRAY SON: "+suma);
 
     }
 }

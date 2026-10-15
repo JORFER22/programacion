@@ -5,7 +5,7 @@ public class ejer1 {
         int [] numeros=new int  [10];
         for (int i=0 ; i< numeros.length ; i++){
             Scanner teclado= new Scanner(System.in);
-            IO.println("INTRODUCE LOS 10 NUMEROS");
+            IO.println("INTRODUCE el numero "+(i+1)+":");
             int ni= teclado.nextInt();
             numeros[i]=ni;
         }

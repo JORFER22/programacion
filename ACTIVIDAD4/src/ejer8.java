@@ -18,7 +18,9 @@ public class ejer8 {
                     igual++;
                 }
             }
-            IO.println("SON IGUALES: "+igual);
+            IO.println("SON IGUALES O MAYORES: "+igual);
+        }else{
+            IO.println("NO ES UN NUMERO PERMITIDO");
         }
     }
 }

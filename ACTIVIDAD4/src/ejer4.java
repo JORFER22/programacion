@@ -8,9 +8,8 @@ public class ejer4 {
         for (int i = 0; i < numeros.length; i++) {
             Scanner teclado = new Scanner(System.in);
             IO.println("INTRODUCE LOS 20 NUMEROS");
-            int ni = teclado.nextInt();
-            numeros[i] = ni;
-            suma= suma+numeros[i];
+            numeros[i] = teclado.nextInt();
+
         }
         IO.println("LA SUMA ES: "+suma);
 
