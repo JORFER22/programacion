@@ -13,11 +13,12 @@ public class ejer9 {
         int N= teclado.nextInt();
         if (N>=1 && N<=10){
             for (int e=0 ; e< num.length ; e++){
-
+                if (N==num[e]){
+                    IO.println("N SE ENCUENTRA EN LA POSICION: "+e);
+                }
             }
+        }else {
+            IO.println("POR FAVOR LEA BIEN EL ENUNCIADO");
         }
-
-
-
     }
 }

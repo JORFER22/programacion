@@ -9,7 +9,7 @@ public class ejer5 {
             Scanner teclado = new Scanner(System.in);
             IO.println("INTRODUCE EL NUMERO "+(i+1)+":");
             numeros[i]= teclado.nextInt();
-            suma = suma + numeros[i];
+            suma += numeros[i];
         }
         double media = suma/numeros.length;
         IO.println("LA MEDIA ES "+media);

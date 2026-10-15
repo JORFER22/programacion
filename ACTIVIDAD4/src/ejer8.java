@@ -9,16 +9,20 @@ public class ejer8 {
         for (int i=0 ; i<num.length ;i++){
             num[i] = Math.random();
         }
-        int igual=0;
-        IO.println("INTRODUZCA R: ");
+        int igual=0 , mayores= 0;
+        IO.println("INTRODUZCA EL VALOR DE R: ");
         double R = teclado.nextDouble();
         if (R>=0.0 && R<=1.0){
             for(int e = 0; e < num.length ; e++){
-                if (num[e]>=R){
+                if (num[e]>R){
+                    mayores++;
+                }
+                if (num[e]==R){
                     igual++;
                 }
             }
-            IO.println("SON IGUALES O MAYORES: "+igual);
+            IO.println("SON IGUALES A R: "+igual);
+            IO.println("SON MAYORES A R: "+mayores);
         }else{
             IO.println("NO ES UN NUMERO PERMITIDO");
         }

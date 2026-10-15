@@ -9,10 +9,15 @@ public class ejer6 {
         int N= teclado.nextInt();
         IO.println("INTRODUCE EL VALOR A ESCRIBIR");
         int M= teclado.nextInt();
-        int[] variable= new int[N];
-        Arrays.fill(variable,M);
-        for (int i : variable){
-            IO.println(i);
+        if (N>0){
+            int[] variable= new int[N];
+            Arrays.fill(variable,M);
+            for (int i : variable){
+                IO.println(i);
+            }
+
+        }else {
+            IO.println("N NO PUEDE SER MENOR O IGUAL A 0");
         }
     }
 }
