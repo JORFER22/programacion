@@ -9,10 +9,8 @@ public class ejer10 {
         IO.println("INTRODUCE EL VALOR DE N");
         int N= teclado.nextInt();
         double suma = 0 , media = 0 , max = - Double.MAX_VALUE , min = Double.MIN_VALUE , encima = 0 , debajo = 0 ;
-        if (N>0){
-            int[]
 
-        }
 
     }
+
 }
