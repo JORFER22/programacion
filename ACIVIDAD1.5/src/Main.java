@@ -12,18 +12,19 @@ public class Main {
 
         //2. Crea un programa que pida dos cadenas de texto por teclado y luego indique si son
         //iguales, además de si son iguales sin diferenciar entre mayúsculas y minúsculas.
-        /*IO.println("INTRODUZCA LA PRIMERA CADENA DE TEXTO ");
+        IO.println("INTRODUZCA LA PRIMERA CADENA DE TEXTO ");
         String cadena1= Sc.nextLine();
         IO.println("INTRODUZCA LA SEGUNDA CADENA DE TEXTO ");
         String cadena2 = Sc.nextLine();
         IO.println("SON IGUALES "+(cadena1.equals(cadena2)));
 
-         */
+
 
         //3. Crea un programa que pida por teclado tres cadenas de texto: nombre y dos apellidos.
         //Luego mostrará un código de usuario (en mayúsculas) formado por la concatenación de
         //las tres primeras letras de cada uno de ellos. Por ejemplo, si se introduce “Lionel”,
         //“Tarazón” y “Alcocer” mostrará “LIOTARALC”.
+
 
         //4. Crea un programa que muestre por pantalla cuantas vocales de cada tipo hay (cuantas
         //‘a’, cuantas ‘e’, etc.) en una frase introducida por teclado. No se debe diferenciar entre
