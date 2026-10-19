@@ -10,20 +10,43 @@ public class Main {
 
          */
 
+
+
         //2. Crea un programa que pida dos cadenas de texto por teclado y luego indique si son
         //iguales, además de si son iguales sin diferenciar entre mayúsculas y minúsculas.
-        IO.println("INTRODUZCA LA PRIMERA CADENA DE TEXTO ");
+        /*IO.println("INTRODUZCA LA PRIMERA CADENA DE TEXTO ");
         String cadena1= Sc.nextLine();
         IO.println("INTRODUZCA LA SEGUNDA CADENA DE TEXTO ");
         String cadena2 = Sc.nextLine();
-        IO.println("SON IGUALES "+(cadena1.equals(cadena2)));
+        if(cadena1.equals(cadena2)){
+            IO.println("LAS CADENAS SON IGUALES");
+        } else if ((cadena1.equalsIgnoreCase(cadena2)) {
+            IO.println("LAS CADENAS SON IGUALES IGNORANDO LAS MAYUSCULAS Y MINUSCULAS");
 
+        }else {
+            IO.println("LAS CADENAS SON DIFERENTES");
+        }
+
+
+         */
 
 
         //3. Crea un programa que pida por teclado tres cadenas de texto: nombre y dos apellidos.
         //Luego mostrará un código de usuario (en mayúsculas) formado por la concatenación de
         //las tres primeras letras de cada uno de ellos. Por ejemplo, si se introduce “Lionel”,
         //“Tarazón” y “Alcocer” mostrará “LIOTARALC”.
+        /*IO.println("INTRODUZCA UN NOMBRE ");
+        String cadena3 = Sc.nextLine();
+        IO.println("INTRODUZCA EL PRIMER APELLIDO ");
+        String cadena4 = Sc.nextLine();
+        IO.println("INTRODUZCA EL SEGUNDO APELLIDO ");
+        String cadena5 = Sc.nextLine();
+        String codigo= (cadena3.substring(0,3)+cadena4.substring(0,3)+cadena5.substring(0,3)).toUpperCase();
+        IO.println("EL CODIGO ES "+codigo);
+
+         */
+
+
 
 
         //4. Crea un programa que muestre por pantalla cuantas vocales de cada tipo hay (cuantas
@@ -34,6 +57,25 @@ public class Main {
         //Nº de I's: 2
         //Nº de O's: 0
         //Nº de U's: 0
+        /*IO.println("INTRODUZCA LA FRASE");
+        String frase= Sc.nextLine();
+        int aes= 0 , ees= 0 , ies= 0 , oes= 0 , ues= 0 ;
+        for (char c : frase.toLowerCase().toCharArray()){
+            switch (c){
+                case 'a' -> aes++;
+                case 'e' -> ees++;
+                case 'i' -> ies++;
+                case 'o' -> oes++;
+                case 'u' -> ues++;
+            }
+        }
+        IO.println("Nº de A's: "+aes);
+        IO.println("Nº de E's: "+ees);
+        IO.println("Nº de I's: "+ies);
+        IO.println("Nº de O's: "+oes);
+        IO.println("Nº de U's: "+ues);
+
+         */
 
         //5. Realiza un programa que lea una frase por teclado e indique si la frase es un palíndromo
         //o no (ignorando espacios y sin diferenciar entre mayúsculas y minúsculas).
@@ -45,5 +87,21 @@ public class Main {
         //Dabale arroz a la zorra el abad
         //Amo la pacífica paloma
         //A man a plan a canal Panama
+        IO.println("introduzca la frase que desee");
+        String frase2 = Sc.nextLine();
+        String fraseprocesada = frase2.replace(" ","").toLowerCase();
+        boolean ispalindromo= true ;
+        int izquierda = 0;
+        int derecha = fraseprocesada.length() - 1;
+        while (izquierda<derecha){
+            if (fraseprocesada.charAt(izquierda) != fraseprocesada.charAt(derecha)){
+                ispalindromo= false;
+                break;
+            }
+            izquierda++;
+            derecha--;
+
+        }
+        IO.println("LA FRASE ES UN PALINDROMO "+ispalindromo);
     }
 }
