@@ -19,49 +19,46 @@ public class Main {
         IO.println("BIENBENIDO AL JUEGO PIERDA, PAPEL O TIJERA");
         IO.println("INTRODUCE UNA DE LAS OPCIONES ");
         String opcion;
-        String [] MAQUINA = new String[1];//queria representar por numeros como 1=piedra , 2= papel , 3= tijera
-        for (int i = 0 ; i< MAQUINA.length ; i++)
-
         do {
             IO.println("P = PIEDRA\nL = PAPEL\nT = TIJERAS\nS = SALIR ");
             opcion = sc.nextLine();
+            int MAQUINA[]= new int[1];//aqui realice que el programa identifique los numeros como los objetos PIEDRA =1, PAPEL=2, TIJERA = 3
+            MAQUINA[0] = (int) (Math.random()*3)+1;
             if (opcion.equalsIgnoreCase("P")) {
-                if (MAQUINA[i]==1) {
+                if (MAQUINA[0]==1) {
                     IO.println("LA MAQUINA HA ELEJIDO PIEDRA");
                     IO.println("ES UN EMPATE");
-                } else if (MAQUINA[i]==2) {
+                } else if (MAQUINA[0]==2) {
                     IO.println("LA MAQUINA HA ELEJIDO PAPEL");
                     IO.println("LA MAQUINA HA GANADO");
-                }else if (MAQUINA[i]==3){
+                }else if (MAQUINA[0]==3){
                     IO.println("LA MAQUINA HA ELEJIDO TIJERA");
                     IO.println("HAZ GANADO");
                 }
-
             }else if (opcion.equalsIgnoreCase("L")){
-                if (MAQUINA[i]==1) {
+                if (MAQUINA[0]==1) {
                     IO.println("LA MAQUINA HA ELEJIDO PIEDRA");
                     IO.println("HAZ GANADO");
-                } else if (MAQUINA[i]==2) {
+                } else if (MAQUINA[0]==2) {
                     IO.println("LA MAQUINA HA ELEJIDO PAPEL");
                     IO.println("ES UN EMPATE");
-                }else if (MAQUINA[i]==3) {
+                }else if (MAQUINA[0]==3) {
                     IO.println("LA MAQUINA HA ELEJIDO TIJERA");
                     IO.println("LA MAQUINA HA GANADO");
                 }
             } else if (opcion.equalsIgnoreCase("T")) {
-                if (MAQUINA[i]==1) {
+                if (MAQUINA[0]==1) {
                     IO.println("LA MAQUINA HA ELEJIDO PIEDRA");
                     IO.println("LA MAQUINA HA GANADO");
-                } else if (MAQUINA[i]==2) {
+                } else if (MAQUINA[0]==2) {
                     IO.println("LA MAQUINA HA ELEJIDO PAPEL");
                     IO.println("HAZ GANADO");
-                }else if (MAQUINA[i]==3) {
+                }else if (MAQUINA[0]==3) {
                     IO.println("LA MAQUINA HA ELEJIDO TIJERA");
                     IO.println("ES UN EMPATE");
                 }
             } else if (opcion.equalsIgnoreCase("S")) {
                 IO.println("GRACIAS POR JUGAR");
-
             } else {
                 IO.println("INTRODUCE UNA OPCION VALIDA");
             }
