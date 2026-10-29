@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class Main {
-    public static void main(String[] args){
-        Scanner sc= new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         /*1. Crea un programa que cree una matriz de tamaño 5x5 que almacene los números del 1 al 25
         y luego muestre la matriz por pantalla.
          */
@@ -120,17 +120,31 @@ public class Main {
         IO.println("INTRODUZCA EL NUMERO DE PERSONAS");
         int nPersonas = sc.nextInt();
 
-        int matriz5[][]= new int[nPersonas][2];
-        double mediah= 0.0 , mediaM= 0.0;
-        int contadorH= 0 , contadorM = 0 ;
-        for (int i = 0 ; i< matriz5.length ; i++) {
-            for (int j = 0; j < matriz5[i].length; j++){
+        int matriz5[][] = new int[nPersonas][2];
+        double mediah = 0.0, mediaM = 0.0;
+        int contadorH = 0, contadorM = 0;
+        for (int i = 0; i < matriz5.length; i++) {
+            for (int j = 0; j < matriz5[i].length; j++) {
                 IO.println(" INGRESE EL GENERO DE LA PERSONA (0 HOMBRE, 1 MUJER)");
                 matriz5[i][0] = sc.nextInt();
                 IO.println(" INGRESE EL VALOR DEL SALARIO");
                 matriz5[i][0] = sc.nextInt();
             }
+        /*
+        final String patternFecha = "^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\\d{4}$";
+        final String patternEmail = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
+        final String patternTelefono = "^[6789]\\d{8}$";
+        final String patterDNI = "[0-9]{7,8}[A-Za-z]";
+        String correoUsuario = "contacto@java.com";
 
+        if (correoUsuario.matches(patternEmail)) {
+            System.out.println("¡El correo electrónico es válido!");
+        } else {
+            System.out.println("El formato del correo es incorrecto.");
+        }
 
+         */
+
+        }
     }
 }
