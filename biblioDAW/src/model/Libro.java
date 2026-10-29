@@ -39,42 +39,55 @@ public class Libro {
     }
     //definimos las propiedades : getters y setters
     public String getIsbn(){
+
         return  this.isbn;
     }
     public int getID(){
+
         return  this.ID;
     }
     public String getTitulo(){
+
         return  this.titulo;
     }
     public String getAutor(){
+
         return this.autor;
     }
     public void setAutor(String autor){
+
         this.autor = autor;
     }
     public String getEditorial(){
+
         return this.editorial;
     }
     public void setEditorial(String editorial){
+
         this.editorial= editorial;
     }
     public String getFechaPublicacion(){
+
         return this.fechaPublicacion;
     }
     public String getGenero(){
+
         return this.genero;
     }
     public void setGenero(String genero){
+
         this.genero = genero;
     }
     public int getnPaginas(){
+
         return this.nPaginas;
     }
     public void setnPaginas(int nPaginas){
+
         this.nPaginas= nPaginas;
     }
     //METODO PARA OBTENER TODA LA INFORMACION DE NUESTRO LIBRO
+
     public String infoLibro(){
         String infoLibro="";
         infoLibro += "ID: " + this.ID + "\n";

@@ -27,18 +27,23 @@ public class Biblioteca {
     }
     //getters y setters
     public String getCodigo(){
+
         return this.codigo;
     }
     public String getNombre(){
+
         return this.nombre;
     }
     public String getDireccion(){
+
         return this.direccion;
     }
     public String getEmail(){
+
         return this.email;
     }
     public String getTelefono(){
+
         return this.telefono;
     }
     public void setNombre(String nombre) {
@@ -80,7 +85,7 @@ public class Biblioteca {
                 this.ampliarDimensionBiblioteca();
                 this.libros[this.nlibrosActuales] = libro;
                 this.nlibrosActuales++;
-                resultado= true;
+                resultado = true;
             }
 //            //algoritmo optimizado
 //            if (this.nlibrosActuales>= this.libros.length){
@@ -97,11 +102,70 @@ public class Biblioteca {
     }
 
     //eliminar libros
+    public boolean eliminarLibro(Libro libro){
+        boolean resultado = false;
+        if (libro != null){
+            int index = -1;
+            for (int i = 0 ; i < this.nlibrosActuales; i++){
+                if (this.libros[i] != null){
+                    if (this.libros[i].equals(libro.getIsbn())){
+                        index = i ;
+                        break; // eliminar primera ocurrencia, en este caso el isbn es unico
+                    }
+                }
+            }
+            if (index != -1) {
+                this.libros[index] = null;
+                resultado = true;
+                /*
+                //recolocar el array
+                for (int i = index ; i < this.nlibrosActuales; i ++){
+                    this.libros[i] = this.libros[i+1];
+                }
+                this.libros[this.nlibrosActuales-1]= null;
+                nlibrosActuales--;
+
+                 */
+                //segunda forma
+                this.libros[index] = this.libros[this.nlibrosActuales - 1];
+                this.libros[this.nlibrosActuales - 1] = null;
+                this.nlibrosActuales--;
+            }
+
+        }
+        return resultado;
+    }
 
 
 
     //buscar libros por ISBN
+    public Libro getLibroByIsbn(String ISBN){
+        Libro libro = null;
+        if (ISBN !=null && !ISBN.isEmpty()){//protego para que isbn no sea nulo y q tambien no este vacio
+            for(int i =0 ; i<this.nlibrosActuales ; i++){
+                if (this.libros[i].getIsbn().equals(ISBN)){//recorre el array y compara cual es igual para devolver su info
+                    libro= this.libros[i];
+                    return libro;
+                }
+            }
+        }
+        return libro;
+    }
 
+
+    //se puede hacer para buscar tambien por titulo
+    public Libro getLibroByTitulo(String titulo){
+        Libro libro = null;
+        if (titulo !=null && !titulo.isEmpty()){//protego para que isbn no sea nulo y q tambien no este vacio
+            for(int i =0 ; i<this.nlibrosActuales ; i++){
+                if (this.libros[i].getTitulo().equals(titulo)){//recorre el array y compara cual es igual para devolver su info
+                    libro= this.libros[i];
+                    return libro;
+                }
+            }
+        }
+        return libro;
+    }
 
 
     //mostrasr info de la biblioteca
@@ -113,12 +177,21 @@ public class Biblioteca {
         infoBiblio += "email. " + this.email + "\n";
         infoBiblio += "Telefono: " +this.telefono + "\n";
         infoBiblio += "Numero de libros actuales: " + this.nlibrosActuales + "\n";
+
         return infoBiblio;
     }
 
-
-
     //mostrar info de todos los libros almacenados
+    public String infoLibroBiblio (){
+        String infoLibros="";
+        //se recorre el array para mostrar toda la informacion de cada libro con dos saltos de linea para poder separar de mejor manera cada libro
+        for (int i = 0; i< this.nlibrosActuales ; i++){
+            //el mas igual se utiliza para sobreescribir la nueva info de cada libro
+            infoLibros+= this.libros[i].infoLibro() + "\n\n";
+        }
+        return infoLibros;
+
+    }
 
 
 
