@@ -172,9 +172,9 @@ public class Biblioteca {
     public String infoBiblioteca(){
         String infoBiblio= "";
         infoBiblio += "Codigo: " + this.codigo + "\n";
-        infoBiblio += "nombre: " + this.nombre;
+        infoBiblio += "Nombre: " + this.nombre;
         infoBiblio += "Direccion: " +this.direccion + "\n";
-        infoBiblio += "email. " + this.email + "\n";
+        infoBiblio += "Email. " + this.email + "\n";
         infoBiblio += "Telefono: " +this.telefono + "\n";
         infoBiblio += "Numero de libros actuales: " + this.nlibrosActuales + "\n";
 
