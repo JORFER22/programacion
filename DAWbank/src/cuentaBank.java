@@ -5,6 +5,7 @@ public class cuentaBank {
     private int saldo = 0;
 
 
+
     public cuentaBank(String iban, String titular){
         this.iban=iban;
         this.titular=titular;
@@ -30,5 +31,13 @@ public class cuentaBank {
         return infoCuentaBank;
     }
 
+
+
+    private final double euroIngresado = 0;
+    public boolean ingreso(){
+        if(euroIngresado>0){
+            if (euroIngresado)
+        }
+    }
 
 }

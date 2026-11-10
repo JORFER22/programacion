@@ -1,43 +1,51 @@
 package model;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Movimiento {
     private static int numMovimiento= 0;
 
     private final int id;
-    private final String fecha;
-    private final String tipo;
+    private final LocalDateTime fecha;
+    private final Tipo tipo;
     private final int cantidad;
+    DateTimeFormatter formatter= DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
-    public Movimiento(int id, String fecha, String tipo, int cantidad){
-        this.fecha=fecha;
+    public Movimiento(int id, Tipo tipo, int cantidad){
+        this.fecha=LocalDateTime.now();
         this.tipo= tipo;
         this.cantidad= cantidad;
-
         this.id=numMovimiento;
         numMovimiento++;
-
     }
+
+
+
     public int getId(){
+
         return this.id;
     }
-    public String getFecha(){
+    public LocalDateTime getFecha(){
+
         return this.fecha;
     }
-    public String getTipo(){
+    public Tipo getTipo(){
+
         return this.tipo;
     }
     public int getCantidad(){
+
         return this.cantidad;
     }
 
     public String infoMovimiento(){
         String infoMovimiento="";
         infoMovimiento+="ID :"+this.id+"\n";
-        infoMovimiento+="FECHA :"+this.fecha+"\n";
+        infoMovimiento+="FECHA :"+this.fecha.format(formatter)+"\n";
         infoMovimiento+="TIPO :"+this.tipo+"\n";
         infoMovimiento+="CANTIDAD :"+this.cantidad+"\n";
         return infoMovimiento;
     }
-
-
 }

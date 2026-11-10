@@ -1,0 +1,5 @@
+package model;
+
+public enum Genero {
+    FANTASIA, THRILLER, AVENTURA, NOVELA, HISTORICA, COMEDIA, SCIFI, BIOPIC, GENERICO;
+}

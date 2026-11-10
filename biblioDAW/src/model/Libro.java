@@ -1,8 +1,11 @@
 package model;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Libro {
 
     private static int nLibros = 0;
+    DateTimeFormatter formatter= DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     private final int ID;
     private String isbn;
@@ -10,8 +13,8 @@ public class Libro {
     private String autor;
     private int nPaginas;
     private String editorial;
-    private String genero;
-    private String fechaPublicacion;
+    private Genero genero;
+    private LocalDate fechaPublicacion;
 
     public  Libro(String isbn, String titulo, String autor ){
         this.isbn= isbn;
@@ -19,13 +22,15 @@ public class Libro {
         this.autor= autor;
         this.nPaginas= 0;
         this.editorial="";
-        this.genero="";
-        this.fechaPublicacion="";
+        this.genero = Genero.GENERICO;
+        //this.fechaPublicacion= LocalDate.of(2026, 10, 11);
+        this.fechaPublicacion = LocalDate.now(); //sirve para dar la fecha de creacion
+        //LocalDate.parse("10/11/2026", formatter);
 
         this.ID= nLibros;
         nLibros++;
     }
-    public  Libro(String isbn, String titulo, String autor, int nPaginas, String editorial, String genero, String fechaPublicacion) {
+    public  Libro(String isbn, String titulo, String autor, int nPaginas, String editorial, Genero genero, LocalDate fechaPublicacion) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.autor = autor;
@@ -66,15 +71,15 @@ public class Libro {
 
         this.editorial= editorial;
     }
-    public String getFechaPublicacion(){
+    public LocalDate getFechaPublicacion(){
 
         return this.fechaPublicacion;
     }
-    public String getGenero(){
+    public Genero getGenero(){
 
         return this.genero;
     }
-    public void setGenero(String genero){
+    public void setGenero(Genero genero){
 
         this.genero = genero;
     }
@@ -97,7 +102,7 @@ public class Libro {
         infoLibro += "Editorial: " +this.editorial + "\n";
         infoLibro += "Numero de paginas: " +this.nPaginas + "\n";
         infoLibro += "Genero: " + this.genero + "\n";
-        infoLibro += "Fecha de publicacion. " +this.fechaPublicacion + "\n";
+        infoLibro += "Fecha de publicacion. " +this.fechaPublicacion.format(formatter)+"\n";
         return infoLibro;
     }
 
