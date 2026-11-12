@@ -10,10 +10,10 @@ public class Movimiento {
     private final int id;
     private final LocalDateTime fecha;
     private final Tipo tipo;
-    private final int cantidad;
+    private final double cantidad;
     DateTimeFormatter formatter= DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
-    public Movimiento(int id, Tipo tipo, int cantidad){
+    public Movimiento(Tipo tipo, double cantidad){
         this.fecha=LocalDateTime.now();
         this.tipo= tipo;
         this.cantidad= cantidad;
@@ -35,7 +35,7 @@ public class Movimiento {
 
         return this.tipo;
     }
-    public int getCantidad(){
+    public double getCantidad(){
 
         return this.cantidad;
     }

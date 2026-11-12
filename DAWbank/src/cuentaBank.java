@@ -1,8 +1,14 @@
+import model.Movimiento;
+import model.Tipo;
+
 public class cuentaBank {
 
     private final String iban;
     private final String titular;
-    private int saldo = 0;
+    private double saldo = 0;
+    private final Movimiento [] movimientos = new Movimiento[100];
+    private int cantidadMovimiento = 0;
+
 
 
 
@@ -12,14 +18,17 @@ public class cuentaBank {
     }
 
     public String getIban(){
+
         return this.iban;
     }
 
     public String getTitular(){
+
         return this.titular;
     }
 
-    public int getSaldo(){
+    public double getSaldo(){
+
         return this.saldo;
     }
 
@@ -33,11 +42,36 @@ public class cuentaBank {
 
 
 
-    private final double euroIngresado = 0;
-    public boolean ingreso(){
+
+    public boolean ingreso(double euroIngresado){
+        boolean resultado=  false;
+
         if(euroIngresado>0){
-            if (euroIngresado)
+            this.saldo+=euroIngresado;
+            Movimiento ingreso = new Movimiento(Tipo.INGRESO, euroIngresado);
+            this.movimientos[this.cantidadMovimiento] = ingreso;
+            this.cantidadMovimiento++;
+            resultado = true;
+
         }
+        return resultado;
     }
+
+
+    public boolean retiro(double euroRetiro){
+        boolean resultado=  false;
+
+        if(euroRetiro>0){
+            this.saldo-=euroRetiro;
+            Movimiento retiro = new Movimiento(Tipo.RETIRADA, euroRetiro);
+            this.movimientos[this.cantidadMovimiento] = retiro;
+            this.cantidadMovimiento++;
+            resultado = true;
+
+        }
+        return resultado;
+    }
+
+
 
 }
