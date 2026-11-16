@@ -4,6 +4,7 @@ import model.Tipo;
 
 void main(String[] args) {
     final String patternIban = "^[A-Za-z]{2}\\d{22}$";
+    final String patternEuro = "^\\\\d+[.,]\\\\d{2}$";
     Scanner sc = new Scanner(System.in);
     String iban;
     cuentaBank c1 = null;
@@ -67,6 +68,7 @@ void main(String[] args) {
                 IO.println("INGRESE LA CANTIDAD QUE QUIERE RETIRAR DE SU CUENTA, ESTE DIGITO TIENE QUE SER MAYOR A 0");
                 double retiro= sc.nextDouble();
                 if (retiro>0.0){
+                    //validacion dependiendo del caso que acuerde
                     if ((c1.getSaldo()-retiro)>=-50){
                         IO.println("EL RETIRO HA SIDO EXITOSO\n");
                         c1.retiro(retiro);
