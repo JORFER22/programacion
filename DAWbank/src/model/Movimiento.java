@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Movimiento {
-    private static int numMovimiento= 0;
+    private static int numMovimiento= 1;
 
     private final int id;
     private final LocalDateTime fecha;
@@ -42,10 +42,10 @@ public class Movimiento {
 
     public String infoMovimiento(){
         String infoMovimiento="";
-        infoMovimiento+="ID :"+this.id+"\n";
-        infoMovimiento+="FECHA :"+this.fecha.format(formatter)+"\n";
-        infoMovimiento+="TIPO :"+this.tipo+"\n";
-        infoMovimiento+="CANTIDAD :"+this.cantidad+"\n";
+        infoMovimiento+="ID : "+this.id+"\n";
+        infoMovimiento+="FECHA : "+this.fecha.format(formatter)+"\n";
+        infoMovimiento+="TIPO : "+this.tipo+"\n";
+        infoMovimiento+="CANTIDAD : "+this.cantidad+"\n"+"\n";
         return infoMovimiento;
     }
 }

@@ -72,6 +72,17 @@ public class cuentaBank {
         }
         return resultado;
     }
+    public String totalMovimientos(){
+        String historial = "";
+        if (cantidadMovimiento==0){
+            historial="NO HAY MOVIMIENTOS ASOCIADOS \n";
+        }else {
+            for (int i=0;i<cantidadMovimiento;i++){
+                historial += movimientos[i].infoMovimiento();
+            }
+        }
+        return historial;
+    }
 
 
 
