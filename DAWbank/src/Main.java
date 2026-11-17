@@ -4,7 +4,7 @@ import model.Tipo;
 
 void main(String[] args) {
     final String patternIban = "^[A-Za-z]{2}\\d{22}$";
-    final String patternEuro = "^\\\\d+[.,]\\\\d{2}$";
+
     Scanner sc = new Scanner(System.in);
     String iban;
     cuentaBank c1 = null;
@@ -47,31 +47,43 @@ void main(String[] args) {
                 IO.println("EL SALDO DE LA CUENTA ES : "+c1.getSaldo()+"\n");
 
             } else if (opcion==5) {
+                //ingresar dinero
+
                 IO.println("INGRESE LA CANTIDAD QUE QUIERE INGRESAR A SU CUENTA, ESTE DIGITO TIENE QUE SER MAYOR A 0");
-                 double ingreso = sc.nextDouble();
+                 String ingreso = sc.nextLine();
+                 while (!validacionDigito(ingreso)){
+                     IO.println("¡ERROR! FORMATO NO VALIDO");
+                     ingreso = sc.nextLine();
+                 }
+                 double cantidadIng = Double.valueOf(ingreso);
                  //validacion de digitos para ser grabados en movimientos
-                if (ingreso>0.0 && ingreso<3000.0){
-                    c1.ingreso(ingreso);//aqui se llama al metodo el cual valida y graba
+                if (cantidadIng>0.0 && cantidadIng<3000.0){
+                    c1.ingreso(cantidadIng);//aqui se llama al metodo el cual valida y graba
                     IO.println("CANTIDAD INGRESADA CORRECTAMENTE");
-                }else if (ingreso>=3000.0){
+                }else if (cantidadIng>=3000.0){
                     //notificacion y aviso de notificar a hacienda
                     IO.println("¡AVISO!: NOTIFICAR A HACIENDA");
                     IO.println("CANTIDAD INGRESADA CORRECTAMENTE");
-                    c1.ingreso(ingreso);
+                    c1.ingreso(cantidadIng);
                 }else {
                     //no graba y notifica que se ingrse una cantidad valida
-                    IO.println("POR FAVOR INGRESE UNA CANTIDAD VALIDA");
+                    IO.println("¡ERROR! CANTIDAD NO VALIDA");
                 }
 
             }else if (opcion==6) {
                 //retirada
                 IO.println("INGRESE LA CANTIDAD QUE QUIERE RETIRAR DE SU CUENTA, ESTE DIGITO TIENE QUE SER MAYOR A 0");
-                double retiro= sc.nextDouble();
-                if (retiro>0.0){
+                String retiro= sc.nextLine();
+                while (!validacionDigito(retiro)){
+                    IO.println("¡ERROR! FORMATO NO VALIDO");
+                    retiro = sc.nextLine();
+                }
+                double cantidadRet = Double.valueOf(retiro);
+                if (cantidadRet>0.0){
                     //validacion dependiendo del caso que acuerde
-                    if ((c1.getSaldo()-retiro)>=-50){
+                    if ((c1.getSaldo()-cantidadRet)>=-50){
                         IO.println("EL RETIRO HA SIDO EXITOSO\n");
-                        c1.retiro(retiro);
+                        c1.retiro(cantidadRet);
                         if (c1.getSaldo()<0){
                             IO.println("SU SALDO ES NEGATIVO\n");
                         }
@@ -96,4 +108,10 @@ void main(String[] args) {
 
     } while (opcion != 8);
 
+
+}
+public static boolean validacionDigito(String digito){
+    Pattern patronDigito = Pattern.compile("^\\\\d+[.]\\\\d{2}$");
+    Matcher mathce = patronDigito.matcher(digito);
+    return mathce.matches();
 }

@@ -11,7 +11,7 @@ public class Movimiento {
     private final LocalDateTime fecha;
     private final Tipo tipo;
     private final double cantidad;
-    DateTimeFormatter formatter= DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+    private DateTimeFormatter formatter= DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
     public Movimiento(Tipo tipo, double cantidad){
         this.fecha=LocalDateTime.now();
@@ -48,4 +48,11 @@ public class Movimiento {
         infoMovimiento+="CANTIDAD : "+this.cantidad+"\n"+"\n";
         return infoMovimiento;
     }
+//    public String mostrarInfoMovimiento(){
+//        StringBuilder sb = new StringBuilder();
+//        sb.append("ID: ").append(this.id).append("\n");
+//        sb.append("Fecha: ").append(this.fecha.format(formatter)).append("\n");
+//        sb.append("Tipo: ").append(this.tipo).append("\n");
+//        sb.append("Cantidad: ").append(this.cantidad).append("\n");
+//    }
 }

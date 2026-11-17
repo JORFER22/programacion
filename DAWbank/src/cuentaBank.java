@@ -5,16 +5,17 @@ public class cuentaBank {
 
     private final String iban;
     private final String titular;
-    private double saldo = 0;
-    private final Movimiento [] movimientos = new Movimiento[100];
-    private int cantidadMovimiento = 0;
-
-
+    private double saldo;
+    private final Movimiento [] movimientos;
+    private int cantidadMovimiento;
 
 
     public cuentaBank(String iban, String titular){
         this.iban=iban;
         this.titular=titular;
+        this.saldo=0.0;
+        this.movimientos = new Movimiento[100];
+        this.cantidadMovimiento = 0;
     }
 
     public String getIban(){
@@ -48,12 +49,19 @@ public class cuentaBank {
         boolean resultado=  false;
 
         if(euroIngresado>0){
-            this.saldo+=euroIngresado;
-            Movimiento ingreso = new Movimiento(Tipo.INGRESO, euroIngresado);
-            this.movimientos[this.cantidadMovimiento] = ingreso;
-            this.cantidadMovimiento++;
-            resultado = true;
-
+            if (this.cantidadMovimiento<this.movimientos.length) {
+                this.saldo += euroIngresado;
+                Movimiento ingreso = new Movimiento(Tipo.INGRESO, euroIngresado);
+                this.movimientos[this.cantidadMovimiento] = ingreso;
+                this.cantidadMovimiento++;
+                resultado = true;
+            } else if (this.cantidadMovimiento>=this.movimientos.length) {
+                this.ampliarDimension();
+                this.saldo += euroIngresado;
+                Movimiento ingreso = new Movimiento(Tipo.INGRESO, euroIngresado);
+                this.movimientos[this.cantidadMovimiento] = ingreso;
+                this.cantidadMovimiento++;
+            }
         }
         return resultado;
     }
@@ -63,25 +71,41 @@ public class cuentaBank {
         boolean resultado=  false;
 
         if(euroRetiro>0){
-            this.saldo-=euroRetiro;
-            Movimiento retiro = new Movimiento(Tipo.RETIRADA, euroRetiro);
-            this.movimientos[this.cantidadMovimiento] = retiro;
-            this.cantidadMovimiento++;
-            resultado = true;
-
+            if (this.cantidadMovimiento< this.movimientos.length) {
+                this.saldo -= euroRetiro;
+                Movimiento retiro = new Movimiento(Tipo.RETIRADA, euroRetiro);
+                this.movimientos[this.cantidadMovimiento] = retiro;
+                this.cantidadMovimiento++;
+                resultado = true;
+            }else if (this.cantidadMovimiento >= this.movimientos.length){
+                this.saldo -= euroRetiro;
+                Movimiento retiro = new Movimiento(Tipo.RETIRADA, euroRetiro);
+                this.movimientos[this.cantidadMovimiento] = retiro;
+                this.cantidadMovimiento++;
+                resultado = true;
+            }
         }
         return resultado;
     }
+
+
     public String totalMovimientos(){
         String historial = "";
-        if (cantidadMovimiento==0){
+        if (this.cantidadMovimiento==0){
             historial="NO HAY MOVIMIENTOS ASOCIADOS \n";
         }else {
-            for (int i=0;i<cantidadMovimiento;i++){
-                historial += movimientos[i].infoMovimiento();
+            for (int i=0;i<this.cantidadMovimiento;i++){
+                historial += this.movimientos[i].infoMovimiento()+"\n";
             }
         }
         return historial;
+    }
+
+    private void ampliarDimension(){
+        Movimiento[]movAux= new Movimiento[this.movimientos.length + 100];
+        for (int i =0 ; i <movimientos.length; i++){
+        movAux[i]=this.movimientos[i];
+        }
     }
 
 
