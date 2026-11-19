@@ -25,93 +25,77 @@ void main(String[] args) {
 
     } while (!iban.matches(patternIban));
 
-    int opcion;
+    String opcion= "";
     do {
         IO.println("INTRODUZCA UNA DE LAS OPCIONES A REALIZAR EN DAWBANK");
         IO.println("1 DATOS DE LA CEUNTA \n2 IBAN \n3 TITULAR \n4 SALDO\n5 INGRESO \n6 RETIRADA \n7 MOVIMIENTO \n8 SALIR ");
-        opcion = sc.nextInt();
-        if (opcion > 0 && opcion < 9) {
-            if (opcion==1){
-                //para llamar a la estructura de la informacion de la cuenta y que la pinte
-                IO.println(c1.infoCuentaBank().toUpperCase());
-            } else if (opcion==2) {
-                //solo llamar el IBAN con el get y asi mismo que este en mayusculas y un salto de linea
-                IO.println("EL IBAN ES : "+c1.getIban().toUpperCase()+"\n");
+        opcion = sc.nextLine();
+        if (opcion.equals("1")){
+            //para llamar a la estructura de la informacion de la cuenta y que la pinte
+            IO.println(c1.infoCuentaBank().toUpperCase());
+        } else if (opcion.equals("2")) {
+            //solo llamar el IBAN con el get y asi mismo que este en mayusculas y un salto de linea
+            IO.println("EL IBAN ES : "+c1.getIban().toUpperCase()+"\n");
 
-            } else if (opcion==3) {
-                //solo llamar al titular con el get y el upper para ponermo en mayusculas y un salto de linea
-                IO.println("EL NOMBRE DEL TITULAR ES : "+c1.getTitular().toUpperCase()+"\n");
+        } else if (opcion.equals("3")) {
+            //solo llamar al titular con el get y el upper para ponermo en mayusculas y un salto de linea
+            IO.println("EL NOMBRE DEL TITULAR ES : "+c1.getTitular().toUpperCase()+"\n");
 
-            } else if (opcion==4) {
-                //solo llamar el saldo con el get y en todos realizar un salto de linea para separar
-                IO.println("EL SALDO DE LA CUENTA ES : "+c1.getSaldo()+"\n");
+        } else if (opcion.equals("4")) {
+            //solo llamar el saldo con el get y en todos realizar un salto de linea para separar
+            IO.println("EL SALDO DE LA CUENTA ES : "+c1.getSaldo()+"\n");
 
-            } else if (opcion==5) {
-                //ingresar dinero
+        } else if (opcion.equals("5")) {
+            //ingresar dinero
 
-                IO.println("INGRESE LA CANTIDAD QUE QUIERE INGRESAR A SU CUENTA, ESTE DIGITO TIENE QUE SER MAYOR A 0");
-                 String ingreso = sc.nextLine();
-                 while (!validacionDigito(ingreso)){
-                     IO.println("¡ERROR! FORMATO NO VALIDO");
-                     ingreso = sc.nextLine();
-                 }
-                 double cantidadIng = Double.valueOf(ingreso);
-                 //validacion de digitos para ser grabados en movimientos
-                if (cantidadIng>0.0 && cantidadIng<3000.0){
-                    c1.ingreso(cantidadIng);//aqui se llama al metodo el cual valida y graba
-                    IO.println("CANTIDAD INGRESADA CORRECTAMENTE");
-                }else if (cantidadIng>=3000.0){
-                    //notificacion y aviso de notificar a hacienda
-                    IO.println("¡AVISO!: NOTIFICAR A HACIENDA");
-                    IO.println("CANTIDAD INGRESADA CORRECTAMENTE");
-                    c1.ingreso(cantidadIng);
-                }else {
-                    //no graba y notifica que se ingrse una cantidad valida
-                    IO.println("¡ERROR! CANTIDAD NO VALIDA");
-                }
-
-            }else if (opcion==6) {
-                //retirada
-                IO.println("INGRESE LA CANTIDAD QUE QUIERE RETIRAR DE SU CUENTA, ESTE DIGITO TIENE QUE SER MAYOR A 0");
-                String retiro= sc.nextLine();
-                while (!validacionDigito(retiro)){
-                    IO.println("¡ERROR! FORMATO NO VALIDO");
-                    retiro = sc.nextLine();
-                }
-                double cantidadRet = Double.valueOf(retiro);
-                if (cantidadRet>0.0){
-                    //validacion dependiendo del caso que acuerde
-                    if ((c1.getSaldo()-cantidadRet)>=-50){
-                        IO.println("EL RETIRO HA SIDO EXITOSO\n");
-                        c1.retiro(cantidadRet);
-                        if (c1.getSaldo()<0){
-                            IO.println("SU SALDO ES NEGATIVO\n");
-                        }
-                    }else {
-                        IO.println("FONDOS INSUFICIENTES\n");
-                    }
-                }else {
-                    IO.println("INGRESE UNA CANTIDAD VALIDA\n");
-                }
-            } else if (opcion==7) {
-                IO.println("MOSTRANDO HISTORIAL \n");
-                IO.println(c1.totalMovimientos());
-
-            } else if (opcion==8) {
-                IO.println("SALIENDO DEL SISTEMA \nMUCAHS GRACIAS POR PREFERIR DAWBANK");
-
+            IO.println("INGRESE LA CANTIDAD QUE QUIERE INGRESAR A SU CUENTA, ESTE DIGITO TIENE QUE SER MAYOR A 0");
+             double ingreso = sc.nextDouble();
+             //validacion de digitos para ser grabados en movimientos
+            if (ingreso>0.0 && ingreso<3000.0){
+                c1.ingreso(ingreso);//aqui se llama al metodo el cual valida y graba
+                IO.println("CANTIDAD INGRESADA CORRECTAMENTE");
+            }else if (ingreso>=3000.0){
+                //notificacion y aviso de notificar a hacienda
+                IO.println("¡AVISO!: NOTIFICAR A HACIENDA");
+                IO.println("CANTIDAD INGRESADA CORRECTAMENTE");
+                c1.ingreso(ingreso);
+            }else {
+                //no graba y notifica que se ingrse una cantidad valida
+                IO.println("¡ERROR! CANTIDAD NO VALIDA");
             }
 
-        } else {
+        }else if (opcion.equals("6")) {
+            //retirada
+            IO.println("INGRESE LA CANTIDAD QUE QUIERE RETIRAR DE SU CUENTA, ESTE DIGITO TIENE QUE SER MAYOR A 0");
+            double retiro= sc.nextDouble();
+            if (retiro>0.0){
+                //validacion dependiendo del caso que acuerde
+                if ((c1.getSaldo()-retiro)>=-50){
+                    IO.println("EL RETIRO HA SIDO EXITOSO\n");
+                    c1.retiro(retiro);
+                    if (c1.getSaldo()<0){
+                        IO.println("SU SALDO ES NEGATIVO\n");
+                    }
+                }else {
+                    IO.println("FONDOS INSUFICIENTES\n");
+                }
+            }else {
+                IO.println("INGRESE UNA CANTIDAD VALIDA\n");
+            }
+        } else if (opcion.equals("7")) {
+            IO.println("MOSTRANDO HISTORIAL \n");
+            IO.println(c1.totalMovimientos());
+
+        } else if (opcion.equals("8")) {
+            IO.println("SALIENDO DEL SISTEMA \nMUCAHS GRACIAS POR PREFERIR DAWBANK");
+
+        }else {
             IO.println("NO ES UNA OPCION VALIDA \n");
         }
 
-    } while (opcion != 8);
 
 
-}
-public static boolean validacionDigito(String digito){
-    Pattern patronDigito = Pattern.compile("^\\\\d+[.]\\\\d{2}$");
-    Matcher mathce = patronDigito.matcher(digito);
-    return mathce.matches();
+    } while (!opcion.equals(8));
+
+
 }
