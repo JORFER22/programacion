@@ -12,11 +12,21 @@ public class antiguosAlumnos extends alumno{
     }
 
     public LocalDate getFechaGraduacion() {
+
         return this.fechaGraduacion;
     }
 
     public boolean isWorking() {
+
         return this.isWorking;
     }
+
     @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.toString());
+        sb.append("Fecha de graduacion: ").append(this.fechaGraduacion).append("\n");
+        sb.append("Esta trabajando: ").append(this.isWorking).append("\n");
+        return sb.toString();
+    }
 }
