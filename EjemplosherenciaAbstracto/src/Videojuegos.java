@@ -32,6 +32,7 @@ public class Videojuegos extends Producto {
 
     @Override
     public String calificacion() {
+
         return this.PEG;
     }
 

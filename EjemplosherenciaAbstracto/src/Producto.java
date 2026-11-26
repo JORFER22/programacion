@@ -25,14 +25,17 @@ public abstract class Producto {
     }
 
     public String getDescripcion() {
+
         return this.descripcion;
     }
 
     public double getPrecio() {
+
         return this.precio;
     }
 
     public void setPrecio(double precio) {
+
         this.precio = precio;
     }
 

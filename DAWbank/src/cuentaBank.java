@@ -106,6 +106,7 @@ public class cuentaBank {
         for (int i =0 ; i <movimientos.length; i++){
         movAux[i]=this.movimientos[i];
         }
+
     }
 
 

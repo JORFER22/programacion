@@ -10,26 +10,32 @@ public class Pelicula extends Producto{
     private String fromato;
 
     public String getGenero() {
+
         return this.genero;
     }
 
     public int getDuracion() {
+
         return this.duracion;
     }
 
     public String getISAN() {
+
         return this.ISAN;
     }
 
     public String getDirector() {
+
         return this.director;
     }
 
     public String getCalificacion() {
+
         return this.calificacion;
     }
 
     public String getFromato() {
+
         return this.fromato;
     }
 
@@ -39,11 +45,13 @@ public class Pelicula extends Producto{
 
     @Override
     public double obtenerDescuento() {
+
         return 10;
     }
 
     @Override
     public String calificacion() {
+
         return "";
     }
 
