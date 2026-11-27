@@ -68,7 +68,7 @@ public class Cliente {
         sb.append("Nombre= ").append(nombre).append("\n");
         sb.append("Numero de Socio= ").append(numSocio).append("\n");
         sb.append("Direccion= ").append(direccion).append("\n");
-        sb.append("Fecha de nacimiento= ").append(fechaNacimiento).append("\n");
+        sb.append("Fecha de nacimiento= ").append(fechaNacimiento.format(formatter)).append("\n");
         sb.append("Fecha de Baja= ").append(fechaBaja).append("\n");
         return sb.toString();
     }

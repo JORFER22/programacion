@@ -50,13 +50,13 @@ public class videoDaw {
     }
 
 /* metodo para ampliar la dimension*/
-    public boolean registroC(Cliente registroCliente){
+    public boolean registroCl(Cliente registroCliente){
         boolean resultado= false;
         if(this.numClientes<this.clientes.length){
             this.clientes[numClientes]=registroCliente;
             numClientes++;
         }else if (this.numClientes>=this.clientes.length){
-            this.ampliarDimension();
+            this.ampliarDimensionCliente();
             this.clientes[numClientes]=registroCliente;
             numClientes++;
         }
@@ -64,13 +64,35 @@ public class videoDaw {
     }
 
 
+    public boolean registroPe(Pelicula registroPelicula ){
+        boolean resultado = false;
+        if (this.numPeliculas<this.peliculas.length){
+            this.peliculas[numPeliculas]=registroPelicula;
+            numPeliculas++;
+        }else if (this.numPeliculas>=this.peliculas.length){
+         ampliarDimensionPelicula();
+         this.peliculas[numPeliculas]=registroPelicula;
+         numPeliculas++;
+        }
+        return resultado;
+    }
 
 
-    private void ampliarDimension(){
+
+    private void ampliarDimensionCliente(){
         Cliente [] clAux= new Cliente[this.clientes.length+100];
         for (int i =0 ; i < clientes.length; i++){
             clAux[i]=this.clientes[i];
         }
         this.clientes=clAux;
     }
+
+    private void ampliarDimensionPelicula(){
+        Pelicula[] peAux= new Pelicula[this.peliculas.length+100];
+        for (int i = 0 ; i < peliculas.length; i++){
+            peAux[i]=this.peliculas[i];
+        }
+        this.peliculas=peAux;
+    }
+
 }
