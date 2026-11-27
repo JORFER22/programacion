@@ -14,6 +14,7 @@ public class Cliente {
     private final LocalDate fechaNacimiento;
     private LocalDate fechaBaja;
     private Pelicula[] peliculasAlquiladas;
+    private int numAlquiladas;
 
     private final DateTimeFormatter formatter= DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
@@ -26,6 +27,14 @@ public class Cliente {
 
         this.fechaBaja=null;
         this.peliculasAlquiladas= new Pelicula[5];
+    }
+
+    public Pelicula[] getPeliculasAlquiladas() {
+        return peliculasAlquiladas;
+    }
+
+    public void setPeliculasAlquiladas(Pelicula[] peliculasAlquiladas) {
+        this.peliculasAlquiladas = peliculasAlquiladas;
     }
 
     public String getDNI() {

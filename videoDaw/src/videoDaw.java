@@ -48,6 +48,8 @@ public class videoDaw {
         sb.append("Fecha de alta: ").append(this.fechaAlta.format(formatter)).append("\n");
         return super.toString();
     }
+    /*metodo paraalquilar una pelicula*/
+    public boolean
 
 /* metodo para ampliar la dimension*/
     public boolean registroCl(Cliente registroCliente){

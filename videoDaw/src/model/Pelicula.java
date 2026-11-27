@@ -25,6 +25,7 @@ public class Pelicula {
         this.isAlquilada=false;
     }
 
+
     public String getCodigo() {
         return this.codigo;
     }
